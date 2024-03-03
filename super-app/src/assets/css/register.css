@@ -1,0 +1,116 @@
+.registerContainer{
+    background-color: var(--primary);
+    display: flex;
+}
+
+.left{
+   flex:1;
+   position: relative;
+}
+
+.left img{
+   width: 100%;
+   height: 100%; 
+}
+
+.img-text{
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    font-size: 55px;
+    color: var(--secondary);
+}
+.right{
+   flex: 1;
+   color: var(--secondary);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 60px 0px;
+}
+
+.title{
+    font-size: 67px;
+    color: var(--imp);
+}
+
+.sub-title{
+    padding-top:10px ;
+    padding-bottom: 40px;
+}
+
+.input{
+    width: 50%;
+    border-radius: 3px;
+    background-color: var(--input);
+    border: none;
+    padding: 14px;
+    margin: 10px 0px; 
+    color: var(--secondary);
+
+}
+
+.share-check{
+    width: 53%;
+    padding: 11px 0px;
+    margin: 20px 0px;
+    
+}
+
+.checkbox{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size:16px;
+}
+
+.signup{
+    width: 53%;
+    padding: 11px 0px;
+    border-radius: 28px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.term-condition{
+    text-align: left;
+    width: 53%;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin: 20px 0px;
+    font-size: 14px;
+}
+
+.register-error{
+    width: 53%;
+}
+
+@media screen and (max-width: 900px) {
+    .registerContainer {
+       display: block;
+    }
+    .left{
+        text-align: center;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .registerContainer {
+      display: block; 
+    }
+    .left{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .input {
+       width: 70%;
+    }
+    .share-check,.term-condition,.signup{
+        width: 75%;
+    }
+  }
