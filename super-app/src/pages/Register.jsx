@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import frontPage from "../assets/images/image13.png";
 import "../assets/css/register.css";
 
 const Register = () => {
@@ -98,14 +99,14 @@ const Register = () => {
     if (isValid) {
       const data=JSON.stringify(formValue);
       localStorage.setItem("user",data);
-      navigate("/movie")
+      navigate("/movie");
     }
   };
   return (
     <>
       <div className="registerContainer">
         <div className="left">
-          <img src="images/image13.png" />
+          <img src={frontPage} />
           <p className="img-text">Discover new things on Superapp</p>
         </div>
         <div className="right">
