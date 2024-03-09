@@ -5,7 +5,7 @@ import windimg from "../assets/images/wind.png";
 import pressureimg from "../assets/images/pressure.png";
 
 export const Weather = () => {
-  const [weather, setWeather] = useState(JSON.parse(localStorage.getItem("weather")));
+  const [weather, setWeather] = useState({});
   const apiKey = import.meta.env.VITE_WEATHER_KEY;
 
   useEffect(() => {
@@ -14,7 +14,6 @@ export const Weather = () => {
       .then((res) => res.json())
       .then((res) => setWeather(res))
       .catch((err) => console.log(err));
-    localStorage.setItem("weather",JSON.stringify(weather));
   }, []);
 
   const check = () => {

@@ -11,7 +11,7 @@ function App() {
   return (
       <Routes>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/browse" element={user?<Browse />:<Register/>}></Route>
+        <Route path="/browse" element={user?(user.preference?<Browse />:<Movies/>):<Register/>}></Route>
         <Route path="/" element={user?(user.preference?<Homepage />:<Movies/>):<Register/>}></Route>
         <Route path="/movie" element={user?<Movies />:<Register />}></Route>
       </Routes>

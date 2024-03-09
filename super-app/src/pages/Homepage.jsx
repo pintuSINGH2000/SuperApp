@@ -5,9 +5,16 @@ import Note from "../components/Note";
 import Timer from "../components/Timer";
 import News from "../components/News";
 import { Weather } from "../components/Weather";
+import Browse from './Browse';
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  const handleClick = () =>{
+       navigate("/browse");
+  }
   return (
+    <>
     <div className="homepage">
       <div className="homepage-container">
         <div className="homepage-profile-weather-note">
@@ -27,6 +34,8 @@ const Homepage = () => {
         <News />
       </div>
     </div>
+    <button className="next browse dm-sans-500" onClick={handleClick}>Browse</button>
+    </>
   );
 };
 

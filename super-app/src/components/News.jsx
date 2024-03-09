@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import newsimg from "../assets/images/news.png";
 const News = () => {
-    const [news,setNews] = useState(JSON.parse(localStorage.getItem("news")));
+    const [news,setNews] = useState({});
     const apiKey = import.meta.env.VITE_NEWS_KEY;
     useEffect(() => {
       const apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2024-02-09&sortBy=publishedAt&apiKey=${apiKey}`;
@@ -9,7 +9,6 @@ const News = () => {
         .then((res) => res.json())
         .then((res) => setNews(res))
         .catch((err) => console.log(err));
-        localStorage.setItem("news",JSON.stringify(news));
     }, []);
     function truncateText(text, maxWords) {
         if(!text) return;
