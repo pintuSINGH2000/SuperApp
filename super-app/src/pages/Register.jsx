@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import frontPage from "../assets/images/image13.png";
 import "../assets/css/register.css";
+import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
+  const { user, updateUser } = useContext(AuthContext);
   const [formValue, setFormValue] = useState({
     name: "",
     userName: "",
@@ -97,8 +99,7 @@ const Register = () => {
     }
 
     if (isValid) {
-      const data=JSON.stringify(formValue);
-      localStorage.setItem("user",data);
+      updateUser(formValue);
       navigate("/movie");
     }
   };
