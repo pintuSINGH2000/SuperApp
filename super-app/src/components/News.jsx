@@ -4,11 +4,12 @@ const News = () => {
     const [news,setNews] = useState({});
     const apiKey = import.meta.env.VITE_NEWS_KEY;
     useEffect(() => {
-      const apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2024-02-09&sortBy=publishedAt&apiKey=${apiKey}`;
+      const apiUrl = `https://api.worldnewsapi.com/search-news?text=cricket&language=en&api-key=${apiKey}`;
       fetch(apiUrl)
         .then((res) => res.json())
-        .then((res) => setNews(res))
+        .then((res) => setNews(res.news))
         .catch((err) => console.log(err));
+       
     }, []);
     function truncateText(text, maxWords) {
         if(!text) return;
@@ -22,19 +23,19 @@ const News = () => {
         return text;
       }
     const check = () => {
-       if(news&&news.articles&&news.articles.length>0) return true;
+       if(news&&news.length>0) return true;
        return false;
     }
   return (
     <div className="news-container">
       <div className="news-img">
-        <img src={check()?news.articles[0].urlToImage:""}  />
+        <img src={check()?news[0].image:""}  />
         <div className="news-title roboto-500">
-          { check()&&news.articles[0].title}
+          { check()&&news[0].title}
         </div>
       </div>
       <div className="news-detail">
-         <div className="news roboto-500">{truncateText(check()&&news.articles[0].description,60)}</div>
+         <div className="news roboto-500">{truncateText(check()&&news[0].text,60)}</div>
       </div>
     </div>
   );
