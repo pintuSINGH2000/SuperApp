@@ -7,8 +7,6 @@ import "../assets/css/browse.css";
 
 const Browse = () => {
   const { user, updateUser } = useContext(AuthContext);
-  console.log(user);
-  console.log(user.preference);
   return (
     <div className="browse-container">
         <div className="browse-nav">
