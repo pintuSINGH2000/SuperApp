@@ -9,7 +9,7 @@ export const Weather = () => {
   const apiKey = import.meta.env.VITE_WEATHER_KEY;
 
   useEffect(() => {
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Ahmedabad&aqi=no`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Ahmedabad&aqi=no`;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((res) => setWeather(res))
